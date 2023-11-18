@@ -47,8 +47,5 @@
     "storybook": "^7.5.3",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
-  },
-  "resolutions": {
-    "webpack": "^5"
   }
 }

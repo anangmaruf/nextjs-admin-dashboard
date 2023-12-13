@@ -21,5 +21,5 @@ type Story = StoryObj<typeof meta>;
 export const Base: Story = {
   args: {
     ...mockBaseTemplateProps.base,
-  },
+  } as IBaseTemplate,
 };

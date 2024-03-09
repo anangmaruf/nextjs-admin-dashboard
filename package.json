@@ -18,10 +18,22 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.0",
+    "@prisma/client": "5.7.0",
+    "@types/bcrypt": "^5.0.2",
+    "antd": "^5.13.2",
+    "axios": "^1.6.2",
+    "bcrypt": "^5.1.1",
+    "framer-motion": "^10.16.16",
+    "moment": "^2.30.1",
     "next": "14.0.1",
+    "next-auth": "^4.24.5",
     "react": "^18",
+    "react-datepicker": "^4.25.0",
     "react-dom": "^18",
-    "react-icons": "^4.12.0"
+    "react-icons": "^4.12.0",
+    "swr": "^2.2.4",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.2.0",
@@ -35,7 +47,7 @@
     "@storybook/nextjs": "^7.5.3",
     "@storybook/react": "^7.5.3",
     "@storybook/testing-library": "^0.2.2",
-    "@types/node": "^20",
+    "@types/node": "^20.10.4",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.0.1",

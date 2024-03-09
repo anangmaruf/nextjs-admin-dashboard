@@ -25,10 +25,10 @@ const config: Config = {
       xl: '1536px',
     },
     fontFamily: {
-      sans: ['Arial', 'sans-serif'],
-      serif: ['Garamond', 'serif'],
+      sans: ['Inter', 'sans-serif'],
+      // serif: ['Garamond', 'serif'],
     },
   },
-  plugins: [],
+  darkMode: 'class',
 };
 export default config;

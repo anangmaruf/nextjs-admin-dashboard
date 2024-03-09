@@ -1,7 +1,6 @@
 import React from 'react';
 import '@/app/globals.css';
 import Providers from './providers';
-import Navbar from '@/components/Partials/Navbar/Navbar.component';
 
 // export const metadata = {
 //   title: 'Next.js',

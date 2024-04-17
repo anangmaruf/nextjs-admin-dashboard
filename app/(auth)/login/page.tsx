@@ -1,7 +1,7 @@
 "use client"
 import React, { useCallback, useState } from 'react';
 import { EyeInvisibleOutlined, EyeTwoTone } from '@ant-design/icons';
-import { Card, Input, Space, Button } from 'antd';
+import { Card } from 'antd';
 
 const Login = () => {
   const [passwordVisible, setPasswordVisible] = useState(false)

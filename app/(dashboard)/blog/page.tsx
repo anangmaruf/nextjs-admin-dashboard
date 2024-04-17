@@ -7,12 +7,6 @@ import { Pagination, Popover } from 'antd';
 
 const Blog: React.FC = () => {
 
-  const [showActionButton, setShowActionButton] = useState(false);
-
-  const toggleShowActionButton = useCallback(() => {
-    setShowActionButton((current) => !current );
-  }, []);
-
   const _ActionButtons = () => {
     return (
       <div className="">

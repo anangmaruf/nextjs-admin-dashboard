@@ -16,7 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <div className="py-5">{children}</div>
+          <div>{children}</div>
         </Providers>
       </body>
     </html>

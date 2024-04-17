@@ -30,17 +30,22 @@ h2,
 h3,
 h4,
 h5 {
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 body {
-  color: #414141;
+  color: #373b41;
   background-color: #fff;
   font-size: 15px;
+  letter-spacing: 1px;
 }
 
 .bg-primary {
   @apply bg-blue-500;
+}
+
+.bg-primary-green {
+  background-color: #9eeea7;
 }
 
 .bg-secondary {

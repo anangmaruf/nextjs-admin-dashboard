@@ -1,57 +1,49 @@
 "use client"
 import React from 'react';
 import TitlePage from '@/components/TitlePage';
-import { IoDocumentTextOutline, IoEllipsisVerticalCircle, IoPencilOutline, IoEyeOutline, IoTrashBinOutline } from 'react-icons/io5';
+import { IoAddOutline, IoDocumentTextOutline } from 'react-icons/io5';
+import { Pagination, Input } from 'antd';
+import ActionButton from '@/components/Buttons/ActionButton';
+import { Table, Tbody, Td, Th, Thead, Tr } from '@/components/Tables';
+import ModalForm from '@/components/ModalForm';
+import BlogForm from '@/components/Forms/BlogForm';
 import Link from 'next/link';
-import { Pagination, Popover } from 'antd';
 
+const { Search } = Input;
 const Blog: React.FC = () => {
-
-  const _ActionButtons = () => {
-    return (
-      <div className="">
-        <Link href={'/'}
-              className="text-xs flex items-center gap-2 w-full px-3 py-2 hover:bg-neutral-300 ransition-all ease-in-out duration-300 rounded-lg"><IoPencilOutline
-          size={15} />Edit</Link>
-        <Link href={'/'}
-              className="text-xs flex items-center gap-2 w-full px-3 py-2 hover:bg-neutral-300 ransition-all ease-in-out duration-300 rounded-lg"><IoEyeOutline
-          size={15} />Show</Link>
-        <Link href={'/'}
-              className="text-xs flex items-center gap-2 w-full px-3 py-2 hover:bg-neutral-300 ransition-all ease-in-out duration-300 rounded-lg"><IoTrashBinOutline
-          size={15} />Erase</Link>
-      </div>
-    )
-  }
   return (
     <>
-      <TitlePage title="Blog List" icon={<IoDocumentTextOutline size={26} />} />
-      <div className="relative mt-7 p-3 w-full bg-[#f9f9f9] rounded-lg ">
-        <table className="table-auto rounded-lg w-full border border-neutral-200 text-left overflow-hidden">
-          <thead>
-            <tr className="bg-[#eee] border-b border-neutral-200">
-              <th className="p-3 font-semibold text-xs ">No</th>
-              <th className="p-3 font-semibold text-xs ">Name</th>
-              <th className="p-3 font-semibold text-xs ">Created At</th>
-              <th className="p-3 font-semibold text-xs ">Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr className="relative border-b border-neutral-200 bg-white cursor-pointer">
-              <td className="p-3 border-b text-sm">1</td>
-              <td className="p-3 border-b text-sm">Jhone</td>
-              <td className="p-3 border-b text-sm">24/02/2024</td>
-              <td className="p-3 border-b text-sm">
-                <div className="block">
-                  <Popover content={ _ActionButtons } trigger="click">
-                    <button>
-                      <IoEllipsisVerticalCircle size={30} className="hover:bg-[#eee] transition-all ease-in-out duration-300 rounded-full"/>
-                    </button>
-                  </Popover>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="relative flex flex-col md:flex-row items-center justify-between pb-3">
+        <TitlePage title="Blog List" icon={<IoDocumentTextOutline size={26} />} />
+        <Link
+          href="/blog/create"
+          className="bg-primary-green p-2 md:p-2 rounded-full border-2 border-[#9eeea7] hover:rotate-180 hover:bg-transparent transition-all ease-in-out duration-300">
+          <IoAddOutline size={30} />
+        </Link>
+        {/*<ModalForm*/}
+        {/*  form={ <BlogForm /> }*/}
+        {/*/>*/}
+      </div>
+      <div className="relative mt-7 p-3 w-full bg-[#f9f9f9] rounded-lg">
+        <div className="my-2">
+          <Search placeholder="Search name and press enter or click button search" loading={false} enterButton />
+        </div>
+        <Table>
+          <Thead>
+            <Th>No</Th>
+            <Th>Name</Th>
+            <Th>Created At</Th>
+            <Th>Action</Th>
+          </Thead>
+          <Tbody>
+            <Tr>
+              <Td>1</Td>
+              <Td>Jhone</Td>
+              <Td>24/02/2024</Td>
+              <Td><ActionButton /></Td>
+            </Tr>
+          </Tbody>
+        </Table>
         <div className="w-full py-4 flex justify-end">
           <Pagination defaultCurrent={1} total={1000} />
         </div>

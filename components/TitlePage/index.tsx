@@ -2,7 +2,7 @@ import React from 'react';
 
 interface ITitlePage {
   title: string,
-  icon: React.ReactNode
+  icon?: React.ReactNode
 }
 
 const TitlePage: React.FC<ITitlePage> = ({ title, icon }) => {

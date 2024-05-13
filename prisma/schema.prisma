@@ -1,0 +1,50 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  email      String   @unique
+  firstname  String
+  lastname   String
+  password   String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  @@map("users")
+}
+
+model Category {
+  id         String   @id @default(uuid())
+  title      String
+  slug       String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  is_deleted Boolean
+  deleted_at DateTime
+  blogs      Blog[]
+
+  @@map("categories")
+}
+
+model Blog {
+  id           String    @id @default(uuid())
+  category     Category? @relation(fields: [category_id], references: [id])
+  category_id  String
+  title        String
+  slug         String
+  summary      String
+  description  String
+  published_at DateTime
+  created_at   DateTime  @default(now())
+  updated_at   DateTime  @updatedAt
+  is_deleted   Boolean
+  deleted_at   DateTime
+
+  @@map("blogs")
+}

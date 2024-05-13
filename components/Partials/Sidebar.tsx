@@ -4,10 +4,11 @@ import React, { useCallback, useState } from 'react';
 import { IoChevronForward, IoBarChartOutline, IoPowerOutline, IoDocumentTextOutline } from 'react-icons/io5';
 import { usePathname } from 'next/navigation';
 import { MenuItem } from '@/components/Sidebar';
+import { signOut, useSession } from 'next-auth/react';
 
 const Sidebar: React.FC = () => {
   const router : string = usePathname();
-
+  const { status } : { status:string } = useSession()
   const [ showSidebar, setShowsidebar ] = useState(false);
 
   const toggleOpenSidebar = useCallback(() => {
@@ -19,14 +20,14 @@ const Sidebar: React.FC = () => {
     const links = [
       {
         title: "Overview",
-        path: "/overview",
+        path: "/dashboard",
         queries: {},
         showSidebar: showSidebar,
         icon: <IoBarChartOutline size={22} />,
       },
       {
         title: "Blog",
-        path: "/blog",
+        path: "/dashboard/blog",
         queries: { type: 'home' },
         showSidebar: showSidebar,
         icon: <IoDocumentTextOutline size={22} />
@@ -73,6 +74,7 @@ const Sidebar: React.FC = () => {
         <div className="my-4 border border-neutral-300 rounded-full"></div>
         <div className="mt-2">
           <button
+            onClick={() => signOut()}
             type="button"
             className="relative overflow-hidden w-full flex items-center justify-center cursor-pointer text-white rounded-lg bg-rose-500 text-md border border-rose-500 hover:bg-rose-400 transition-all ease-in-out duration-300">
             <IoPowerOutline size={22}/>
